@@ -13,13 +13,11 @@
 
 
 // PERCOBAAN
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/beranda', function () {
-    return view('contents.beranda');
-});
+
+Route::get('/', 'PostsController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profiles', 'ProfilesController@show');
