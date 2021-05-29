@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('megaable.head')
+@include('layouts.head')
 
 <body>
 <!-- Pre-loader start -->
-@include('megaable.preloader')
+@include('layouts.preloader')
 <!-- Pre-loader end -->
 <div id="pcoded" class="pcoded">
     <div class="pcoded-overlay-box"></div>
     <div class="pcoded-container navbar-wrapper">
         <!-- navbar -->
-        @include('megaable.navbar')
+        @include('layouts.navbar')
     
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
-                @include('megaable.sidebar')
+                @include('layouts.sidebar')
                 <div class="pcoded-content">
                     <!-- Page-header start -->
                     <!-- Page-header end -->
@@ -42,7 +42,7 @@
 </div>
 
 <!-- Required Jquery -->
-    @include('megaable.basicscript')
+    @include('layouts.basicscript')
 
 </body>
 

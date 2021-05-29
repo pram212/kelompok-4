@@ -1,4 +1,4 @@
-@extends('megaable.main')
+@extends('layouts.main')
 
 @section('title', 'Beranda')
 
