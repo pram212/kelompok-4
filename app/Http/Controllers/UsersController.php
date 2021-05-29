@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Profile;
+// akses model user
+use App\User;
 use Illuminate\Http\Request;
 
-class ProfilesController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,21 +42,21 @@ class ProfilesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Profile  $profile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
-    {
-        //
+    public function show(User $user)
+    {   
+        return view('contents.users.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Profile  $profile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +65,10 @@ class ProfilesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Profile  $profile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +76,10 @@ class ProfilesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Profile  $profile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
+    public function destroy($id)
     {
         //
     }
