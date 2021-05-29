@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
-@include('templates.head')
+@include('megaable.head')
 
 <body>
 <!-- Pre-loader start -->
-@include('templates.preloader')
+@include('megaable.preloader')
 <!-- Pre-loader end -->
 <div id="pcoded" class="pcoded">
     <div class="pcoded-overlay-box"></div>
     <div class="pcoded-container navbar-wrapper">
-        @include('templates.navbar')    
+        <!-- navbar -->
+        @include('megaable.navbar')
+    
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
-                @include('templates.sidebar')
+                @include('megaable.sidebar')
                 <div class="pcoded-content">
                     <!-- Page-header start -->
                     <!-- Page-header end -->
@@ -23,9 +25,7 @@
                                 <div class="page-body">
                                     <div class="row">
                                         <div class="col-sm-12">
-
-                                                @yield('content')
-
+                                            @yield('content')
                                         </div>
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@
 </div>
 
 <!-- Required Jquery -->
-    @include('templates.basicscript')
+    @include('megaable.basicscript')
 
 </body>
 
