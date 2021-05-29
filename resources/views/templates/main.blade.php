@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@include('layout.head')
+@include('templates.head')
 
 <body>
 <!-- Pre-loader start -->
-@include('layout.preloader')
+@include('templates.preloader')
 <!-- Pre-loader end -->
 <div id="pcoded" class="pcoded">
     <div class="pcoded-overlay-box"></div>
     <div class="pcoded-container navbar-wrapper">
-        @include('layout.navbar')    
+        @include('templates.navbar')    
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
-                @include('layout.sidebar')
+                @include('templates.sidebar')
                 <div class="pcoded-content">
                     <!-- Page-header start -->
                     <!-- Page-header end -->
@@ -42,7 +42,7 @@
 </div>
 
 <!-- Required Jquery -->
-    @include('layout.basicscript')
+    @include('templates.basicscript')
 
 </body>
 

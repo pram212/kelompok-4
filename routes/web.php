@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
+Route::get('/beranda', function () {
+    return view('contents.beranda');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
