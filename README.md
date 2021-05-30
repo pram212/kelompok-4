@@ -19,5 +19,5 @@
 - Media Sosial
 
 ## Link Video
-- Link Demo Aplikasi ()
+- Link Demo Aplikasi (http://safe-woodland-99809.herokuapp.com/login)
 - Link Deploy ()
