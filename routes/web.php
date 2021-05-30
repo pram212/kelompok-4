@@ -21,3 +21,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/users', 'UsersController');
+Route::resource('/posts', 'PostsController');
+
+Route::get('/setting', function(){
+	return view('contents.users.setting');
+});
