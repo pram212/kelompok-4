@@ -241,4 +241,9 @@ $window.scroll(function() {
     } else {
         nav.removeClass('active');
     }
+
+
+var keyword = $('#keyword').val();
+
+console.log(keyword);
 });
