@@ -83,3 +83,13 @@
     <!-- end of container-fluid -->
 </section>
 @endsection
+
+@push('script')
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if(session('success'))
+    <script>
+        swal("Ok", "{{ session('hapus') }}");
+    </script>
+@endif
+
+@endpush

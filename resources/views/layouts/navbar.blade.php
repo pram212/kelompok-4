@@ -9,7 +9,7 @@
                     <div class="main-search morphsearch-search">
                         <div class="input-group">
                             <span class="input-group-addon search-close"><i class="ti-close"></i></span>
-                            <input type="text" class="form-control" placeholder="Enter Keyword">
+                            <input type="text" class="form-control" placeholder="Enter Keyword" id="keyword">
                             <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                     <div class="main-search morphsearch-search">
                         <div class="input-group">
                             <span class="input-group-addon search-close"><i class="ti-close"></i></span>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="keyword">
                             <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
                         </div>
                     </div>
@@ -42,8 +42,9 @@
                         <i class="ti-fullscreen"></i>
                     </a>
                 </li>
-                <li>
-                    <a href="{{url('/')}}"><i class="fa fa-home"></i></a>
+                <li class="d-flex">
+                    <a href="{{url('/')}}"><i class="ti-home"></i></a>
+                    <a href="{{url('posts/create')}}" title="tambah postingan baru"><i class="ti-plus"></i></a>
                 </li>
             </ul>
             <ul class="nav-right">
@@ -97,23 +98,18 @@
                     </a>
                     <ul class="show-notification profile-notification">
                         <li class="waves-effect waves-light">
-                            <a href="#!">
-                                <i class="ti-settings"></i> Settings
+                            <a href="/setting">
+                                <i class="ti-settings"></i> Pengaturan
                             </a>
                         </li>
                         <li class="waves-effect waves-light">
-                            <a href="user-profile.html">
-                                <i class="ti-user"></i> Profile
+                            <a href="users/{{Auth::user()->id}}">
+                                <i class="ti-user"></i> Profil
                             </a>
                         </li>
                         <li class="waves-effect waves-light">
                             <a href="email-inbox.html">
-                                <i class="ti-email"></i> My Messages
-                            </a>
-                        </li>
-                        <li class="waves-effect waves-light">
-                            <a href="auth-lock-screen.html">
-                                <i class="ti-lock"></i> Lock Screen
+                                <i class="ti-email"></i> Pesan
                             </a>
                         </li>
                         <li class="waves-effect waves-light">

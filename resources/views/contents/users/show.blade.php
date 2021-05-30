@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Beranda')
+@section('title', 'Profile')
 
 @section('content')
 
@@ -40,7 +40,7 @@
                 <div class="tab-pane active" id="postinngan" role="tabpanel">
                     <div class="card">
                       <div class="card-header">
-                        Quote
+                        {{ $user->name }}
                       </div>
                       <div class="card-body">
                         <blockquote class="blockquote mb-0">
@@ -54,7 +54,9 @@
                     <div class="card mb-3">
                       <div class="card-header justify-content-between d-flex">
                         <span>Your Profile</span>
-                        <a href="/users/{{$user->id}}/edit" class="text-right">Edit</a>
+                        <div>
+                          <a href="/users/{{$user->id}}/edit" class="text-right">Edit</a> 
+                        </div>
                         <!-- <span>Edit</span> -->
                       </div>
                       <div class="card-body mx-3">
@@ -113,3 +115,24 @@
 
 
 @endsection
+
+@push('script')
+  <script type="text/javascript" src="{{asset('assets/js/jquery/jquery.min.js')}}"></script>     
+  <script type="text/javascript" src="{{asset('assets/js/jquery-ui/jquery-ui.min.js')}} "></script>     
+  <script type="text/javascript" src="{{asset('assets/js/popper.js/popper.min.js')}}"></script>     
+  <script type="text/javascript" src="{{asset('assets/js/bootstrap/js/bootstrap.min.js')}} "></script>
+  <!-- waves js -->
+  <script src="{{asset('assets/pages/waves/js/waves.min.js')}}"></script>
+  <!-- jquery slimscroll js -->
+  <script type="text/javascript" src="{{asset('assets/js/jquery-slimscroll/jquery.slimscroll.js')}} "></script>
+  <!-- modernizr js -->
+  <script type="text/javascript" src="{{asset('assets/js/SmoothScroll.js')}}"></script>
+  <script src="{{asset('assets/js/jquery.mCustomScrollbar.concat.min.js')}} "></script>
+  <script src="{{asset('assets/js/pcoded.min.js')}}"></script>
+  <script src="{{asset('assets/js/vertical-layout.min.js')}} "></script>
+  <script src="{{asset('assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+  <!-- Custom js -->
+  <script type="text/javascript" src="{{asset('assets/js/script.js')}}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@endpush

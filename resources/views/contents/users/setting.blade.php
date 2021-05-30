@@ -6,13 +6,14 @@
 
 <div class="card">
   <div class="card-header">
-    Quote
+    @ {{ Auth::user()->name }}
   </div>
   <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-    </blockquote>
+    <form action="users/{{ Auth::user()->id }}" method="post">
+      @csrf
+      @method('delete')
+      <button type="submit" class="btn btn-sm btn-danger">Hapus Akun Anda</button>
+    </form>
   </div>
 </div>
 
@@ -37,13 +38,5 @@
   <!-- Custom js -->
   <script type="text/javascript" src="{{asset('assets/js/script.js')}}"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script>
-
-  </script>
-  @if(session('success'))
-  <script>
-      swal("Selamat", "{{ session('success') }}");
-  </script>
-  @endif
 
 @endpush

@@ -6,19 +6,38 @@
 
 <div class="card">
   <div class="card-header">
-    Quote
+    Edit Postingan <i class="fa fa-pencil"></i>
   </div>
   <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-    </blockquote>
+    <form class="form-material" action="/posts/{{ $post->id }}" method="post">
+      @csrf
+      @method('PUT')
+      <div class="form-group form-primary">
+      <input type="hidden" name="user_id" value="1">
+          <textarea class="form-control" name="quote">{{ $post->quote }}</textarea>
+          <span class="form-bar"></span>
+          <label class="float-label">Tulis Sesuatu</label>
+      </div>
+     <!--  <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Upload Foto</label>
+          <div class="col-sm-10">
+              <input type="file" class="form-control" name="gambar">
+          </div>
+      </div> -->
+      <div class="form-group form-primary has-danger">
+          <input type="text" name="caption" class="form-control" value="{{$post->quote}}">
+          <span class="form-bar text-danger"></span>
+          <label class="float-label">Caption</label>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-sm btn-primary float-right">Simpan</button>
+      </div>
+    </form>
   </div>
 </div>
 
 
 @endsection
-
 @push('script')
   <script type="text/javascript" src="{{asset('assets/js/jquery/jquery.min.js')}}"></script>     
   <script type="text/javascript" src="{{asset('assets/js/jquery-ui/jquery-ui.min.js')}} "></script>     
@@ -37,13 +56,4 @@
   <!-- Custom js -->
   <script type="text/javascript" src="{{asset('assets/js/script.js')}}"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script>
-
-  </script>
-  @if(session('success'))
-  <script>
-      swal("Selamat", "{{ session('success') }}");
-  </script>
-  @endif
-
 @endpush

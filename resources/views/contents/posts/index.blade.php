@@ -4,18 +4,28 @@
 
 @section('content')
 
+@foreach($post as $data)
 <div class="card">
   <div class="card-header">
-    Quote
+    <a href="posts/{{$data->id}}/edit" class="btn btn-sm btn-info float-right"><i class="ti ti-pencil"></i></a>
+
+    <form action="posts/{{$data->id}}" method="post">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-sm btn-danger float-right"><i class="ti ti-trash"></i></button>
+    </form>
+
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+      <p>{{$data->quote}}</p>
+      <footer class="blockquote-footer">
+        <small>ditulis pada :{{$data->created_at}}</small>
+      </footer>
     </blockquote>
   </div>
 </div>
-
+@endforeach
 
 @endsection
 
