@@ -43,6 +43,7 @@
 
 <!-- Required Jquery -->
     @include('layouts.basicscript')
+    @stack('script')
 
 </body>
 

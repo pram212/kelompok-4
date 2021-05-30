@@ -18,3 +18,13 @@
 
 
 @endsection
+
+@push('script')
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if(session('success'))
+    <script>
+        swal("Selamat", "{{ session('success') }}");
+    </script>
+    @endif
+
+@endpush
