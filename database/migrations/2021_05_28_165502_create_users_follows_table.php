@@ -15,12 +15,12 @@ class CreateUsersFollowsTable extends Migration
     {
         Schema::create('users_follows', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('users_diikuti_id');
-            $table->unsignedBigInteger('users_pengikut_id');
+            $table->unsignedBigInteger('user_diikuti_id');
+            $table->unsignedBigInteger('user_pengikut_id');
             $table->integer('indeks');
 
-            $table->foreign('users_diikuti_id')->references('id')->on('users');
-            $table->foreign('users_pengikut_id')->references('id')->on('users');
+            $table->foreign('user_diikuti_id')->references('id')->on('users');
+            $table->foreign('user_pengikut_id')->references('id')->on('users');
             
             $table->timestamps();
         });
