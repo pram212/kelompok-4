@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -16,13 +17,15 @@ class PostsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // $this->middleware('auth')->except(['index']);
+        
     }
 
 
     public function index()
-    {
-        return view('contents.beranda');
+    {   
+        $post = Post::get();
+        return view('contents.posts.index', compact('post'));
+
     }
 
     /**
@@ -32,7 +35,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('contents.posts.create');
     }
 
     /**
@@ -43,7 +46,15 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'quote' => 'required'
+        ]);
+
+        Post::create($request->all());
+
+        return redirect('/')->with('success', 'Postingan anda berhasil diupdate');
+
+
     }
 
     /**
@@ -54,7 +65,8 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('contents.posts.create', compact('post'));
+        
     }
 
     /**
@@ -65,7 +77,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('contents.posts.edit', compact('post'));
     }
 
     /**
@@ -77,7 +89,9 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->update($request->all());
+
+        return redirect('/')->with('success', 'Postinganmu sudah diperbarui.');
     }
 
     /**
@@ -88,6 +102,8 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect('/posts')->with('success', 'postinganmu sudah terhapus');
     }
 }

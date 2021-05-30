@@ -13,6 +13,12 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
@@ -47,6 +53,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {   
+
         return view('contents.users.show', compact('user'));
     }
 
@@ -82,8 +89,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        
+        return redirect('/login')->with('hapus', 'Anda sudah tidak terdaftar dalam aplikasi kami');
     }
 }
