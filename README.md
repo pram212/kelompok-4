@@ -18,6 +18,10 @@
 
 - Media Sosial
 
+## ERD
+![sosialmedia](https://user-images.githubusercontent.com/75150113/120112415-ee7c0c80-c19f-11eb-9ae3-b4cbfeebdf41.png)
+
+
 ## Link Video
 - Link Demo Aplikasi (http://safe-woodland-99809.herokuapp.com/login)
 - Link Deploy ()
