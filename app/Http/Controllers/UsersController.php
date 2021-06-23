@@ -55,6 +55,7 @@ class UsersController extends Controller
     {   
 
         return view('contents.users.show', compact('user'));
+        
     }
 
     /**

@@ -17,17 +17,12 @@
           <span class="form-bar"></span>
           <label class="float-label">Tulis Sesuatu</label>
       </div>
-     <!--  <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Upload Foto</label>
-          <div class="col-sm-10">
-              <input type="file" class="form-control" name="gambar">
-          </div>
-      </div> -->
       <div class="form-group form-primary has-danger">
           <input type="text" name="caption" class="form-control">
           <span class="form-bar text-danger"></span>
           <label class="float-label">Caption</label>
       </div>
+      <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
       <div>
         <button type="submit" class="btn btn-sm btn-primary float-right">Simpan</button>
       </div>

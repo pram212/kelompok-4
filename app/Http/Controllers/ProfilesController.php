@@ -2,30 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-
+use App\Profile;
 use Illuminate\Http\Request;
 
-
-class PostsController extends Controller
+class ProfilesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-        
-    }
-
-
     public function index()
-    {   
-        $posts = Post::orderBy('id', 'desc')->get();
-        return view('contents.posts.index', compact('posts'));
+    {
+        //
     }
 
     /**
@@ -35,7 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('contents.posts.create');
+        //
     }
 
     /**
@@ -46,50 +35,44 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'quote' => 'required'
-        ]);
-
-        Post::create($request->all());
-
-        return redirect('/')->with('success', 'Postingan anda berhasil diupdate');
-
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
-    {
-        return view('contents.posts.create', compact('post'));
-        
+    public function show(Profile $profile)
+    {   
+
+        return view('contents.profiles.show', compact('profile'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Profile $profile)
     {
-        return view('contents.posts.edit', compact('post'));
+        $profile->update($request->all());
+
+        return redirect('/')->with('success', 'Profil kamu sudah diperbarui.');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
+     * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Profile $profile)
     {
-        $post->update($request->all());
+        $profile->update($request->all());
 
         return redirect('/')->with('success', 'Postinganmu sudah diperbarui.');
     }
@@ -97,14 +80,11 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Profile $profile)
     {
-        $post->delete();
-
-        return redirect('/posts')->with('success', 'postinganmu sudah terhapus');
+        //
     }
-
 }

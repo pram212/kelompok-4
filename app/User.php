@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'namalengkap', 'foto', 'umur', 'alamat', 'kelurahan', 'kecamatan', 'kota', 'kelamin', 'hobi', 'bio' 
+        'name', 'email', 'password' 
     ];
 
     /**
@@ -37,4 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function profile()
+    {
+        return $this->hasOne('\App\Profile', 'users_id');
+    }
+
+    public function post()
+    {
+        return $this->hasMany('\App\Post', 'user_id');
+    }
 }

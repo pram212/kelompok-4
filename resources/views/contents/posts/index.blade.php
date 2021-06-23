@@ -4,12 +4,14 @@
 
 @section('content')
 
-@foreach($post as $data)
+@foreach($posts as $post)
 <div class="card">
   <div class="card-header">
-    <a href="posts/{{$data->id}}/edit" class="btn btn-sm btn-info float-right"><i class="ti ti-pencil"></i></a>
-
-    <form action="posts/{{$data->id}}" method="post">
+    <div class="card-title">
+      <h6>@ {{$post->user->name}}</h6>
+    </div>
+    <a href="posts/{{$post->id}}/edit" class="btn btn-sm btn-info float-right"><i class="ti ti-pencil"></i></a>
+    <form action="posts/{{$post->id}}" method="post">
       @csrf
       @method('DELETE')
       <button type="submit" class="btn btn-sm btn-danger float-right"><i class="ti ti-trash"></i></button>
@@ -18,9 +20,9 @@
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>{{$data->quote}}</p>
+      <p>{{$post->quote}}</p>
       <footer class="blockquote-footer">
-        <small>ditulis pada :{{$data->created_at}}</small>
+        <small>{{$post->created_at}}</small>
       </footer>
     </blockquote>
   </div>

@@ -43,10 +43,12 @@
                         {{ $user->name }}
                       </div>
                       <div class="card-body">
+                        @foreach($user->post as $data)
                         <blockquote class="blockquote mb-0">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                          <p>{{$data->quote}}</p>
+                          <footer class="blockquote-footer">{{ $data->created_at }} <cite title="Source Title">Source Title</cite></footer>
                         </blockquote>
+                        @endforeach
                       </div>
                     </div>
                 </div>
@@ -55,7 +57,7 @@
                       <div class="card-header justify-content-between d-flex">
                         <span>Your Profile</span>
                         <div>
-                          <a href="/users/{{$user->id}}/edit" class="text-right">Edit</a> 
+                          <a href="/profiles/{{$user->id}}" class="text-right">Edit</a> 
                         </div>
                         <!-- <span>Edit</span> -->
                       </div>
@@ -66,33 +68,33 @@
                             <hr>  
                             <h6>Bio :</h6>
                             <blockquote style="text-align: justify;">
-                              {{$user->bio}}
+                              {{$user->profile->bio}}
                             </blockquote>
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
-                              <h5 class="card-title">@ {{$user->name}}</h5>
+                              <h5 class="card-title">@ {{ $user->name }}</h5>
                               <hr>
                               <table>
                                 <tr>
                                   <td>Nama Lengkap</td>
-                                  <td>: {{$user->namalengkap}}</td>
+                                  <td>: {{ $user->profile->namalengkap }}</td>
                                 </tr>
                                 <tr>
                                   <td>Umur</td>
-                                  <td>: {{$user->umur}}</td>
+                                  <td>: {{ $user->profile->umur }}</td>
                                 </tr>
                                 <tr>
                                   <td>Jenis Kelamin</td>
-                                  <td>: {{$user->kelamin}}</td>
+                                  <td>: {{ $user->profile->kelamin }}</td>
                                 </tr>
                                 <tr>
                                   <td>Hobi</td>
-                                  <td>: {{$user->hobi}}</td>
+                                  <td>: {{$user->profile->hobi}}</td>
                                 </tr>
                                 <tr>
                                   <td>Alamat</td>
-                                  <td>: {{$user->alamat}}, {{$user->kelurahan}}, {{$user->kecamatan}}, {{$user->kota}}, </td>
+                                  <td>: {{$user->profile->alamat}}, {{$user->profile->kelurahan}}, {{$user->profile->kecamatan}}, {{$user->profile->kota}}, </td>
                                 </tr>
                               </table>
                               <p class="card-text"><small class="text-muted">terakhir diupdate: {{$user->updated_at}}</small></p>
