@@ -57,7 +57,7 @@
                       <div class="card-header justify-content-between d-flex">
                         <span>Your Profile</span>
                         <div>
-                          <a href="/profiles/{{$user->id}}" class="text-right">Edit</a> 
+                          <a href="/users/{{$user->id}}/edit" class="text-right">Edit</a> 
                         </div>
                         <!-- <span>Edit</span> -->
                       </div>
@@ -68,7 +68,7 @@
                             <hr>  
                             <h6>Bio :</h6>
                             <blockquote style="text-align: justify;">
-                              {{$user->profile->bio}}
+                              {{$user->bio}}
                             </blockquote>
                           </div>
                           <div class="col-md-8">
@@ -78,23 +78,23 @@
                               <table>
                                 <tr>
                                   <td>Nama Lengkap</td>
-                                  <td>: {{ $user->profile->namalengkap }}</td>
+                                  <td>: {{ $user->namalengkap }}</td>
                                 </tr>
                                 <tr>
                                   <td>Umur</td>
-                                  <td>: {{ $user->profile->umur }}</td>
+                                  <td>: {{ $user->umur }}</td>
                                 </tr>
                                 <tr>
                                   <td>Jenis Kelamin</td>
-                                  <td>: {{ $user->profile->kelamin }}</td>
+                                  <td>: {{ $user->kelamin }}</td>
                                 </tr>
                                 <tr>
                                   <td>Hobi</td>
-                                  <td>: {{$user->profile->hobi}}</td>
+                                  <td>: {{$user->hobi}}</td>
                                 </tr>
                                 <tr>
                                   <td>Alamat</td>
-                                  <td>: {{$user->profile->alamat}}, {{$user->profile->kelurahan}}, {{$user->profile->kecamatan}}, {{$user->profile->kota}}, </td>
+                                  <td>: {{$user->alamat}}, {{$user->kelurahan}}, {{$user->kecamatan}}, {{$user->kota}}, </td>
                                 </tr>
                               </table>
                               <p class="card-text"><small class="text-muted">terakhir diupdate: {{$user->updated_at}}</small></p>
